@@ -1,0 +1,42 @@
+<h1>Book</h1>
+<table class="center">
+    <tr>
+<td>Titre: </td>
+    <td> {{ book.title }}</td>
+</tr>
+<tr>
+    <td>Reference: </td>
+        <td> {{ book.ref }}</td>
+    </tr> 
+    <tr>
+        <td>Category: </td>
+            <td> {{ book.category }}</td>
+        </tr>   
+    <tr>
+        <tr>
+<td>Date de publication :</td>
+    <td> {{ book.publicationDate|date('d/m/Y') }}</td>
+</tr>
+<td>Auteur :</td> 
+<td>{{ book.author.username }}</td>
+    </tr>
+    <td>Number of books by the author :</td> 
+<td>{{ book.author.nbbooks }}</td>
+    </tr>
+</table >
+<br>
+<table class="center">
+<tr>
+<td><a href="{{path('app_book')}}">Back to list</a></td>
+<td><a href="{{path('editbook',{'id':book.ref})}}">Edit</a></td>
+</tr>
+</table>
+<style>
+    h1 {
+      text-align: center;
+    }
+    .center {
+margin-left: auto;
+margin-right: auto;
+}
+    </style>

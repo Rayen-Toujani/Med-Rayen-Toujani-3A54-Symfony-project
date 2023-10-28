@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{font-family:monospace;font-size: calc(1rem + 5px);}
+        h1{font-size: 50px;}
+        th,td{padding:1rem 2rem}
+        body{height: 100vh;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+    </style>
+    <h1>🙌 List Of Authors 🙌</h1>
+
+
+
+    
+  
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>nb_books</th>
+                <th colspan="2">Action</th>
+            </tr>
+            {% for i in tab %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.username}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.Nbbooks}}</td>
+                <td><a href="{{path('editauthor',{'id':i.id})}}">edit</a></td>
+                <td><a href="{{path('deleteauthor',{'id':i.id})}}">delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>   
+        <button><a href="{{ path('byemail') }}">order by email</a></button>
+        <button><a href="{{ path('addformauthor') }}">add author</a></button>
+        <button><a href="{{ path('minmax') }}">recherche Min Max</a></button>
+        <button><a href="{{ path('DD') }}">Delete authors whose number of books equals 0</a></button>
+        
+        
+</body>
+</html>

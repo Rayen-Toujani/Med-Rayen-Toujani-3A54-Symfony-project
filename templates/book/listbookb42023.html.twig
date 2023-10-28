@@ -1,0 +1,48 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{font-family:monospace;font-size: calc(1rem + 5px);}
+        h1{font-size: 50px;}
+        th,td{padding:1rem 2rem}
+        body{height: 100vh;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+    </style>
+    <h2>🙌 List of Books Published Before 2023 by Authors with More Than 35 Books 🙌</h2>
+
+    
+    <table border="3" class="center">
+        <tr>
+            <td>Title</td>
+            <td>Publication Date</td>
+            <td>Category</td>
+            <td>Author</td> 
+            <td>Number of books</td>  
+        </tr>
+        {% for a in books %}
+        <tr>
+       
+        <td>{{a.title}}</td>
+        <td>{{a.PublicationDate|date('Y-m-d')}}</td>
+        <td>{{a.category}}</td>
+        <td>{{a.author.username}}</td>
+        <td>{{a.author.nbbooks}}</td>
+        </tr>
+    
+    {% endfor %}
+
+    <button><a href="{{ path('byauthor') }}">order by author</a></button>
+        
+    
+
+        <button><a href="{{ path('updateWilliamShakespeareBooks') }}"> reset category</a></button>
+        <button><a href="{{ path('addformbook') }}"> Add Book</a></button>
+        
+
+</body>
+</html>

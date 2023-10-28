@@ -1,0 +1,34 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{font-family:monospace;font-size: calc(1rem + 5px);}
+        h1{font-size: 50px;}
+        th,td{padding:1rem 2rem}
+        body{height: 100vh;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+    </style>
+    <h2>🙌 List of Books Published Between 2014 And 2018 🙌</h2>
+
+
+        <ul>
+        {% if book==[] %}
+        <p>empty</p>
+        {%endif %}
+            {% for book in book %}
+                <li>{{ book.title }} 
+                <li>{{ book.publicationDate|date('Y-m-d') }}</li>
+                <li>{{book.author.username}}</li>
+                <li>************************</li>
+                <br>
+            {% endfor %}
+        </ul>
+
+
+</body>
+</html>
